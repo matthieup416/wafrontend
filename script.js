@@ -1,4 +1,4 @@
-fetch('https://wabackend.vercel.app/weather/weather')
+fetch('https://wabackend.vercel.app/weather')
   .then((response) => response.json())
   .then((data) => {
     if (data.weather && data.currentPosWeather) {
