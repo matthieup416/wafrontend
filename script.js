@@ -1,4 +1,4 @@
-fetch('http://localhost:3000/weather/weather')
+fetch('https://wabackend.vercel.app/weather/weather')
   .then((response) => response.json())
   .then((data) => {
     if (data.weather && data.currentPosWeather) {
@@ -40,7 +40,9 @@ function updateDeleteCityEventListener() {
     document
       .querySelectorAll('.deleteCity')
       [i].addEventListener('click', function () {
-        fetch(`http://localhost:3000/weather/${this.id}`, { method: 'DELETE' })
+        fetch(`https://wabackend.vercel.app/weather/${this.id}`, {
+          method: 'DELETE',
+        })
           .then((response) => response.json())
           .then((data) => {
             if (data.result) {
@@ -54,7 +56,7 @@ function updateDeleteCityEventListener() {
 document.querySelector('#addCity').addEventListener('click', function () {
   const cityName = document.querySelector('#cityNameInput').value
 
-  fetch('http://localhost:3000/weather', {
+  fetch('https://wabackend.vercel.app/weather', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ cityName }),
